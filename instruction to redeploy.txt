@@ -23,6 +23,6 @@ gcloud run jobs update streamlit-monitor-job --image us-central1-docker.pkg.dev/
 :: Replace <OLDTAG> with the exact tag or SHA you want to restore.
 
 :: New deployment for any change in .py file ( you can change the date (twice) to reflect the change date, it is only a tag)
-gcloud builds submit --tag us-central1-docker.pkg.dev/amsamms/monitor-repo/streamlit-monitor:v20250924 && gcloud run jobs update streamlit-monitor-job --image us-central1-docker.pkg.dev/amsamms/monitor-repo/streamlit-monitor:v20250924 --region us-central1
+gcloud builds submit --tag us-central1-docker.pkg.dev/amsamms/monitor-repo/streamlit-monitor:v20250925 && gcloud run jobs update streamlit-monitor-job --image us-central1-docker.pkg.dev/amsamms/monitor-repo/streamlit-monitor:v20250925 --region us-central1
 
 AFTER UPDATE TRIGGER IT MANUALLY ONCE

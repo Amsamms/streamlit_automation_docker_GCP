@@ -124,6 +124,7 @@ def main():
         "https://h2-prediction.streamlit.app/",
         "https://ai-league.streamlit.app/",
         "https://fired-heater-calcs.streamlit.app/",
+        "https://flow-meter-correction.streamlit.app/",
         "https://rag-demonstration.streamlit.app/"
     ]
     StreamlitAppMonitor(urls).monitor_apps()
