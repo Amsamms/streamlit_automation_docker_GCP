@@ -1,0 +1,28 @@
+:: Sign in (skip if already logged in)
+gcloud auth login
+
+:: Make absolutely sure you’re on the amsamms project
+gcloud config set project amsamms
+
+:: Quick sanity check
+gcloud auth list           & rem shows active account
+gcloud config get-value project
+
+:: List all Cloud Run Jobs so you can confirm the name & region  --------------> Not Mandatory
+gcloud run jobs list --format="table[box](NAME,LOCATION,SCHEDULE,IMAGE)"
+
+:: describe everything                                           ---------------> Not mandatory 
+gcloud run jobs describe streamlit-monitor-job --region us-central1
+
+
+:: List every image (tags and digests) in your Artifact Registry repo ------------->  Not Mandatory
+gcloud artifacts docker images list us-central1-docker.pkg.dev/amsamms/monitor-repo
+
+:: Roll back the job to a previous tag or digest
+gcloud run jobs update streamlit-monitor-job --image us-central1-docker.pkg.dev/amsamms/monitor-repo/streamlit-monitor:<OLDTAG> --region us-central1
+:: Replace <OLDTAG> with the exact tag or SHA you want to restore.
+
+:: New deployment for any change in .py file ( you can change the date (twice) to reflect the change date, it is only a tag)
+gcloud builds submit --tag us-central1-docker.pkg.dev/amsamms/monitor-repo/streamlit-monitor:v20250924 && gcloud run jobs update streamlit-monitor-job --image us-central1-docker.pkg.dev/amsamms/monitor-repo/streamlit-monitor:v20250924 --region us-central1
+
+AFTER UPDATE TRIGGER IT MANUALLY ONCE
