@@ -5,6 +5,9 @@ on:
     - cron: '0 0,8,16 * * *'  # Every 8 hours at 00:00, 08:00, 16:00 UTC
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: write  # Required to push log updates
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
