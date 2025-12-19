@@ -125,7 +125,8 @@ def main():
         "https://ai-league.streamlit.app/",
         "https://fired-heater-calcs.streamlit.app/",
         "https://flow-meter-correction.streamlit.app/",
-        "https://rag-demonstration.streamlit.app/"
+        "https://rag-demonstration.streamlit.app/",
+        "https://work-files-transfer.streamlit.app/"
     ]
     StreamlitAppMonitor(urls).monitor_apps()
 
