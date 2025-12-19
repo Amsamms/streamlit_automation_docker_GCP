@@ -22,7 +22,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install selenium
+        run: pip install -r requirements.txt
 
       - name: Run Streamlit monitor
         run: python streamlit_app_monitor.py
