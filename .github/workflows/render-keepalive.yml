@@ -1,0 +1,15 @@
+name: Render API Keep-Alive
+
+on:
+  schedule:
+    - cron: '0 7,9,11 * * *'  # 9:00, 11:00, 13:00 Egyptian time (UTC+2)
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render API
+        run: |
+          echo "Pinging Render API at $(date -u +'%Y-%m-%d %H:%M UTC')"
+          curl -s -o /dev/null -w "Status: %{http_code}\n" https://h2-predictio-api-app.onrender.com || echo "Service waking up..."
