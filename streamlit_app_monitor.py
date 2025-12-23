@@ -126,7 +126,9 @@ def main():
         "https://fired-heater-calcs.streamlit.app/",
         "https://flow-meter-correction.streamlit.app/",
         "https://rag-demonstration.streamlit.app/",
-        "https://work-files-transfer.streamlit.app/"
+        "https://work-files-transfer.streamlit.app/",
+        "https://ghg-reporting.streamlit.app/",
+        "https://ghg-reporting-dev.streamlit.app/"
     ]
     StreamlitAppMonitor(urls).monitor_apps()
 
